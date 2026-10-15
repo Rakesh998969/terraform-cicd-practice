@@ -4,6 +4,7 @@
 # Terraform state files
 *.tfstate
 *.tfstate.*
+*.tfstate.before-*
 
 # Saved Terraform plans
 tfplan

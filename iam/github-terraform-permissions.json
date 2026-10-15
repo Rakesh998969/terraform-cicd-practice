@@ -1,0 +1,49 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PracticeBucketManagement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucket*",
+        "s3:ListBucket",
+        "s3:PutBucketTagging",
+        "s3:PutBucketVersioning",
+        "s3:PutEncryptionConfiguration",
+        "s3:PutBucketPublicAccessBlock"
+      ],
+      "Resource": "arn:aws:s3:::terraform-cicd-practice-672937918836"
+    },
+    {
+      "Sid": "RemoteStateBucketLocation",
+      "Effect": "Allow",
+      "Action": "s3:GetBucketLocation",
+      "Resource": "arn:aws:s3:::terraform-cicd-state-672937918836"
+    },
+    {
+      "Sid": "RemoteStateBucketListing",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::terraform-cicd-state-672937918836"
+    },
+    {
+      "Sid": "RemoteStateReadWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::terraform-cicd-state-672937918836/terraform-cicd-practice/dev/terraform.tfstate"
+    },
+    {
+      "Sid": "RemoteStateLockFile",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::terraform-cicd-state-672937918836/terraform-cicd-practice/dev/terraform.tfstate.tflock"
+    }
+  ]
+}
